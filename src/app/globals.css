@@ -2,32 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer utilities{
+  .gradient-text {
+    @apply bg-primary-gradient bg-clip-text text-transparent;
+  }
+  .hexagon {
+    clip-path: path('M384.987 4.37789C375.132 -1.47134 362.869 -1.47134 353.014 4.37789L331.59 17.0935L309.866 29.2891C299.873 34.8992 293.742 45.519 293.88 56.9783L294.18 81.8895L293.88 106.801C293.742 118.26 299.873 128.88 309.866 134.49L331.59 146.686L353.014 159.401C362.869 165.25 375.132 165.25 384.987 159.401L406.41 146.686L428.134 134.49C438.127 128.88 444.259 118.26 444.12 106.801L443.82 81.8895L444.12 56.9783C444.259 45.519 438.127 34.8992 428.134 29.2892L406.41 17.0935L384.987 4.37789ZM251.987 33.378L275.705 47.4558L276.12 81.8895L275.694 117.301C275.555 128.76 281.687 139.38 291.68 144.99L322.56 162.326L353.014 180.401C362.869 186.25 375.132 186.25 384.987 180.401L415.44 162.326L445.67 145.355L455.349 150.789C465.342 156.399 471.473 167.019 471.335 178.478L469.92 295.89L471.335 413.301C471.473 424.76 465.342 435.38 455.349 440.99L352.96 498.47L251.987 558.401C242.132 564.25 229.869 564.25 220.014 558.401L119.04 498.47L16.6517 440.99C6.65863 435.38 0.527275 424.76 0.665371 413.301L2.08029 295.89L0.665371 178.478C0.527275 167.019 6.65862 156.399 16.6517 150.789L119.04 93.309L220.014 33.378C229.869 27.5288 242.132 27.5288 251.987 33.378Z');
   }
 }
